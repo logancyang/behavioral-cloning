@@ -9,7 +9,7 @@ from preprocess import generate_new_image
 
 DRIVING_LOG = './data/driving_log.csv'
 IMG_PATH = './data/'
-STEERING_COEFFICIENT = 0.229
+STEERING_COEFFICIENT = 0.23
 
 lines = []
 with open(DRIVING_LOG) as csvfile:
