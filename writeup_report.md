@@ -13,6 +13,10 @@ The goals / steps of this project are the following:
 
 [image1]: ./examples/steering_hist.png "Distribution of Steering Angles in Training Data"
 [image2]: ./examples/train_val_loss.png "Training and Validation loss"
+[image3]: ./examples/left.jpg "Left camera"
+[image4]: ./examples/middle.jpg "Middle camera"
+[image5]: ./examples/right.jpg "Right camera"
+[image6]: ./examples/flipped_middle.jpg "Flipped image"
 
 ---
 
@@ -23,6 +27,14 @@ Here is a histogram to see the distribution of the steering angles. It is a litt
 counter-clockwise on the track.
 
 ![alt text][image1]
+
+The training data consists of three types of images: left, middle, right generated from the cameras on the car. The sample images are shown below.
+
+![alt text][image3] ![alt text][image4] ![alt text][image5]
+
+Data augmentation is used to generate more training data. The technique is to flip the image randomly and also flip the steering input. This simple technique was able to improve the performance of the model significantly.
+
+![alt text][image4] ![alt text][image6]
 
 ### Model Architecture and Training Strategy
 
@@ -165,5 +177,12 @@ Non-trainable params: 0
 
 I recorded the final result in autonomous mode into a mp4 file and uploaded it 
 [here](https://www.youtube.com/watch?v=pDdN28Bdm-o&feature=youtu.be).
+
+#### References
+- [Nvidia: End to End Learning for Self-Driving Cars](https://arxiv.org/abs/1604.07316)
+- [Must Know Tips/Tricks in Deep Neural Networks](http://lamda.nju.edu.cn/weixs/project/CNNTricks/CNNTricks.html)
+- [An overview of gradient descent optimization algorithms](http://ruder.io/optimizing-gradient-descent/index.html)
+- [Striving for Simplicity: The All Convolutional Net](https://arxiv.org/abs/1412.6806)
+- [Spatial Dropout](https://faroit.github.io/keras-docs/1.1.1/layers/core/#spatialdropout2d)
 
 
