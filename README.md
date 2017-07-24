@@ -11,35 +11,18 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/placeholder.png "Model Visualization"
-
-## Rubric Points
-
-### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
+[image1]: ./examples/steering_hist.png "Distribution of Steering Angles in Training Data"
+[image2]: ./examples/train_val_loss.png "Training and Validation loss"
 
 ---
-### Files Submitted & Code Quality
 
-#### 1. Submission includes all required files and can be used to run the simulator in autonomous mode
+### Summary of Training Data
 
-My project includes the following files:
-* model.py containing the script to create and train the model
-* drive.py for driving the car in autonomous mode
-* model.h5 containing a trained convolution neural network 
-* writeup_report.md summarizing the results
+The driving log data consists of 8036 rows, each row has 3 images recorded by 3 virtual cameras on the vehicle: center, left and right.
+Here is a histogram to see the distribution of the steering angles. It is a little bit imbalanced because the vehicle drives
+counter-clockwise on the track.
 
-#### 2. Submission includes functional code
-
-Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing 
-
-```sh
-python drive.py model.h5 './record'
-```
-
-#### 3. Submission code is usable and readable
-
-The model.py file contains the code for training and saving the convolution neural network. 
-The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
+![alt text][image1]
 
 ### Model Architecture and Training Strategy
 
@@ -56,8 +39,7 @@ My next attempts were to augment the data as suggested by the lecture, and adopt
 which is NVIDIA's "End to End Learning for Self-Driving Cars" 
 [paper] (https://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf) (model.py lines 19-60) 
 
-The model includes RELU layers to introduce nonlinearity, 
-and the data is normalized in the model using a Keras lambda layer (code line 20). 
+The model includes RELU layers to introduce nonlinearity, and the data is normalized in the model using a Keras lambda layer (code line 20). 
 
 #### 2. Attempts to reduce overfitting in the model
 
@@ -67,7 +49,8 @@ The model was tested by running it through the simulator and ensuring that the v
 
 #### 3. Model parameter tuning
 
-The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 61).
+The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 61). It was trained for
+4 epochs because further training didn't reduce the loss by a noticeable amount.
 
 #### 4. Appropriate training data
 
@@ -78,6 +61,10 @@ This is a regression task using convolutional neural networks,
 hence there is an important note for training these models - "garbage in, garbage out". With the sample data and data augmentation,
 I was able to improve the model output by a lot. I trained for 4 epochs since further training didn't appear to be very helpful. 
 The final validation loss was 0.0102. 
+
+The following diagram shows the training and validation losses in the training process over the number of epochs,
+
+![alt text][image2]
 
 ### Model Architecture and Training Strategy
 
@@ -177,6 +164,6 @@ Non-trainable params: 0
 #### 3. End Result
 
 I recorded the final result in autonomous mode into a mp4 file and uploaded it 
-[here](https://www.youtube.com/watch?v=pDdN28Bdm-o&feature=youtu.be)
+[here](https://www.youtube.com/watch?v=pDdN28Bdm-o&feature=youtu.be).
 
 

@@ -12,6 +12,7 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./examples/steering_hist.png "Distribution of Steering Angles in Training Data"
+[image2]: ./examples/train_val_loss.png "Training and Validation loss"
 
 ---
 
@@ -60,6 +61,10 @@ This is a regression task using convolutional neural networks,
 hence there is an important note for training these models - "garbage in, garbage out". With the sample data and data augmentation,
 I was able to improve the model output by a lot. I trained for 4 epochs since further training didn't appear to be very helpful. 
 The final validation loss was 0.0102. 
+
+The following diagram shows the training and validation losses in the training process over the number of epochs,
+
+![alt text][image2]
 
 ### Model Architecture and Training Strategy
 
@@ -159,6 +164,6 @@ Non-trainable params: 0
 #### 3. End Result
 
 I recorded the final result in autonomous mode into a mp4 file and uploaded it 
-[here](https://www.youtube.com/watch?v=pDdN28Bdm-o&feature=youtu.be)
+[here](https://www.youtube.com/watch?v=pDdN28Bdm-o&feature=youtu.be).
 
 
